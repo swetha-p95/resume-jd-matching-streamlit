@@ -1,4 +1,4 @@
-pdfplumber==0.1.2
+pdfplumber==0.11.1
 nltk
 spacy
 scikit-learn==1.5.0
