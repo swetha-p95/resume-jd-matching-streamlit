@@ -1,17 +1,17 @@
 import spacy
 from spacy import displacy
 import pprint
-from sentence_transformers import SentenceTransformer
+#from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 # import ast
 # import time
 # import seaborn as sns
 # import matplotlib.pyplot as plt
-import json
+#import json
 import torch
 import transformers as ppb
-import warnings
-warnings.filterwarnings('ignore')
+#import warnings
+#warnings.filterwarnings('ignore')
 import numpy as np
 
 
