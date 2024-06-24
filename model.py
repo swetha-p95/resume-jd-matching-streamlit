@@ -17,7 +17,7 @@ import numpy as np
 
 
 def extract_skills_resume(text):
-    nlp = spacy.load("C:\\Users\\HP\\Desktop\\resume_matching_streamlit\\new_model_resume")
+    nlp = spacy.load("new_model_resume")
 
     doc = nlp(text)
 
@@ -43,7 +43,7 @@ def extract_skills_resume(text):
     return token_list_correct
 
 def extract_skills_jd(text):
-    nlp = spacy.load("C:\\Users\\HP\\Desktop\\resume_matching_streamlit\\new_model_jd")
+    nlp = spacy.load("new_model_jd")
 
     doc = nlp(text)
 
