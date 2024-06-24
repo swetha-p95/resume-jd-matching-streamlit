@@ -4,4 +4,4 @@ spacy
 scikit-learn==1.5.0
 torch
 transformers
-numpy
+numpy==1.26.4
