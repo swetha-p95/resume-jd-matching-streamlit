@@ -1,0 +1,10 @@
+pdfplumber
+re
+nltk
+spacy
+sklearn
+json
+torch
+transformers
+warnings
+numpy
