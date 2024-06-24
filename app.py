@@ -4,7 +4,7 @@ import pdfplumber
 import re
 from nltk.corpus import stopwords
 import nltk
-nltk.download('stopwords')
+nltk.download('punkt')
 from model import extract_skills_resume, extract_skills_jd  , sw_semantic_similarity_from_bert 
 
 # Streamlit app
