@@ -1,5 +1,4 @@
 pdfplumber==0.1.2
-re
 nltk
 spacy
 sklearn
