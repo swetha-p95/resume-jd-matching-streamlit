@@ -1,7 +1,7 @@
 pdfplumber==0.1.2
 nltk
 spacy
-scikit-learn
+scikit-learn==0.19.0
 json
 torch
 transformers
