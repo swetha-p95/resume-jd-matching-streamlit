@@ -113,5 +113,17 @@ if st.button("Extract Skills and Check Match"):
             st.write(f"Matching Score: {score:.2f}")
             st.write(f"Number of Exact Matches: {match_count}")
             st.write(f"Number of Similar Matches: {sim_count}")
+            # Plot the pie chart based on matching score
+            labels = 'Matching Skills', 'Non-Matching Skills'
+            sizes = [score, 1 - score]  # Sizes based on matching score
+            colors = ['#2ca02c', '#d62728']  # Green and red colors
+            explode = (0.1, 0)  # Explode the first slice
+            
+            fig1, ax1 = plt.subplots()
+            ax1.pie(sizes, explode=explode, labels=labels, colors=colors,
+                    autopct='%1.1f%%', shadow=True, startangle=90)
+            ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+            
+            st.pyplot(fig1)
     else:
         st.write("Please provide both resume and job description.")
