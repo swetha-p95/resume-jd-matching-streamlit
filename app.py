@@ -96,9 +96,15 @@ if st.button("Check Match Score"):
     if resume and jd:
         # Extract skills
         resume_skills = extract_skills_resume(resume)
-        st.success('Extracting skills from resume successful!')
+        if resume_skills:
+          st.success('Extracting skills from resume successful!')
+        else:
+          st.error('No skills extracted from resume')
         jd_skills = extract_skills_jd(jd)
-        st.success('Extracting skills from job description successful!')
+        if jd_skills:
+          st.success('Extracting skills from job description successful!')
+        else:
+          st.error('No skills extracted from job description')
         # Display extracted skills
         # if resume_skills:
         #     st.write("**Resume Skills:**")
@@ -115,8 +121,8 @@ if st.button("Check Match Score"):
             else:
                 st.error('Less than 50% Match')
             st.write(f"Matching Score: {score:.3f}")
-            st.write(f"Number of Exact Matches between Resume and JD: {match_count}")
-            st.write(f"Number of Similarity Matches between Resume and JD: {sim_count}")
+            st.write(f"Number of Exact Matches between Resume and Job Description: {match_count}")
+            st.write(f"Number of Similarity Matches between Resume and Job Description: {sim_count}")
             # Plot the pie chart based on matching score
             labels = 'Match Percentage', 'Non-Match Percentage'
             sizes = [score, 1 - score]  # Sizes based on matching score
