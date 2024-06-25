@@ -1,23 +1,23 @@
 import spacy
 from spacy import displacy
 import pprint
-from sentence_transformers import SentenceTransformer
+#from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 # import ast
 # import time
 # import seaborn as sns
 # import matplotlib.pyplot as plt
-import json
+#import json
 import torch
 import transformers as ppb
-import warnings
-warnings.filterwarnings('ignore')
+#import warnings
+#warnings.filterwarnings('ignore')
 import numpy as np
 
 
 
 def extract_skills_resume(text):
-    nlp = spacy.load("C:\\Users\\HP\\Desktop\\resume_matching_streamlit\\new_model_resume")
+    nlp = spacy.load("new_model_resume")
 
     doc = nlp(text)
 
@@ -43,7 +43,7 @@ def extract_skills_resume(text):
     return token_list_correct
 
 def extract_skills_jd(text):
-    nlp = spacy.load("C:\\Users\\HP\\Desktop\\resume_matching_streamlit\\new_model_jd")
+    nlp = spacy.load("new_model_jd")
 
     doc = nlp(text)
 
@@ -109,9 +109,9 @@ def sw_semantic_similarity_from_bert(job,resume):
             job_emb = get_sw_embeddings(i).reshape(1,-1)
             resume_emb = get_sw_embeddings(j).reshape(1,-1)
             sim_score.append(cosine_similarity(job_emb,resume_emb))
-        if np.array(sim_score).max()>0.4:
+        if np.array(sim_score).max()>0.6:
           score.append(np.array(sim_score).max())
-          if  np.array(sim_score).max() == 1:
+          if  np.array(sim_score).max() >= .98:
             match_count+=1 
           else:
             sim_count += 1
