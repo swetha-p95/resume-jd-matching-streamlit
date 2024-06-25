@@ -2,6 +2,7 @@
 import streamlit as st
 import pdfplumber
 import re
+import matplotlib.pyplot as plt
 from nltk.corpus import stopwords
 import nltk
 nltk.download('punkt')
