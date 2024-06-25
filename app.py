@@ -66,16 +66,16 @@ if st.button("Check Match Score"):
     
     if uploaded_file is not None:
      try:
-        with st.spinner('Extracting resume text from PDF...'):
+        with st.spinner('Extracting text from PDF...'):
             text = pdf_to_text(uploaded_file)
-            #st.success('Text extraction successful!')
+            st.success('Text extraction successful!')
 
             
 
             with st.spinner('Cleaning text...'):
                 cleaned_text = clean(text)
                 resume = cleaned_text
-                st.success('Resume text cleaning successful!')
+                st.success('Text cleaning successful!')
 
             
      except Exception as e:
@@ -96,15 +96,9 @@ if st.button("Check Match Score"):
     if resume and jd:
         # Extract skills
         resume_skills = extract_skills_resume(resume)
-        if resume_skills:
-          st.success('Extracting skills from resume successful!')
-        else:
-          st.error('No skills extracted from resume')
+        st.success('Extracting skills from Resume successful!')
         jd_skills = extract_skills_jd(jd)
-        if jd_skills:
-          st.success('Extracting skills from job description successful!')
-        else:
-          st.error('No skills extracted from job description')
+        st.success('Extracting skills from Job Description successful!')
         # Display extracted skills
         if resume_skills:
             st.write("**Resume Skills:**")
@@ -116,15 +110,11 @@ if st.button("Check Match Score"):
         # Check match using BERT
         if resume_skills and jd_skills:
             score, sim_count, match_count = sw_semantic_similarity_from_bert(jd_skills, resume_skills)
-            if score >=0.5:
-                st.success('More than 50% Match')
-            else:
-                st.error('Less than 50% Match')
-            st.write(f"Matching Score: {score:.3f}")
-            st.write(f"Number of Exact Matches between Resume and Job Description: {match_count}")
-            st.write(f"Number of Similarity Matches between Resume and Job Description: {sim_count}")
+            st.write(f"Matching Score: {score:.2f}")
+            st.write(f"Number of Exact Matches: {match_count}")
+            st.write(f"Number of Similar Matches: {sim_count}")
             # Plot the pie chart based on matching score
-            labels = 'Match Percentage', 'Non-Match Percentage'
+            labels = 'Matching Skills', 'Non-Matching Skills'
             sizes = [score, 1 - score]  # Sizes based on matching score
             colors = ['#2ca02c', '#d62728']  # Green and red colors
             explode = (0.1, 0)  # Explode the first slice
