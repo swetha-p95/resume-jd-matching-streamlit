@@ -11,7 +11,6 @@ from model import extract_skills_resume, extract_skills_jd  , sw_semantic_simila
 # Streamlit app
 st.title("Resume and Job Description Matching")
 
-st.header("Input Resume and Job Description for Matching")
 
 # Ensure NLTK stopwords are downloaded
 nltk.download('stopwords')
@@ -49,7 +48,7 @@ def clean(text):
 
     return clean_text
 
-st.write("Upload Resume as a PDF file")
+st.header("Upload Resume as a PDF file")
 
 uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
 
