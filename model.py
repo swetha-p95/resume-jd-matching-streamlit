@@ -109,7 +109,7 @@ def sw_semantic_similarity_from_bert(job,resume):
             job_emb = get_sw_embeddings(i).reshape(1,-1)
             resume_emb = get_sw_embeddings(j).reshape(1,-1)
             sim_score.append(cosine_similarity(job_emb,resume_emb))
-        if np.array(sim_score).max()>0.6:
+        if np.array(sim_score).max()>0.5:
           score.append(np.array(sim_score).max())
           if  np.array(sim_score).max() == 1:
             match_count+=1 
