@@ -106,12 +106,12 @@ if st.button("Check Match Score"):
         else:
           st.error('No skills extracted from job description')
         # Display extracted skills
-        # if resume_skills:
-        #     st.write("**Resume Skills:**")
-        #     st.write(", ".join(resume_skills))
-        # if jd_skills:
-        #     st.write("**Job Description Skills:**")
-        #     st.write(", ".join(jd_skills))
+        if resume_skills:
+            st.write("**Resume Skills:**")
+            st.write(", ".join(resume_skills))
+        if jd_skills:
+            st.write("**Job Description Skills:**")
+            st.write(", ".join(jd_skills))
         
         # Check match using BERT
         if resume_skills and jd_skills:
