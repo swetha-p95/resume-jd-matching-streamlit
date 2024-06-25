@@ -9,7 +9,7 @@ nltk.download('punkt')
 from model import extract_skills_resume, extract_skills_jd  , sw_semantic_similarity_from_bert 
 
 # Streamlit app
-st.title("Resume and Job Description Matching")
+st.title("Resume and Job Description Matching Score with Customized NER")
 
 
 # Ensure NLTK stopwords are downloaded
@@ -100,12 +100,12 @@ if st.button("Extract Skills and Check Match"):
         jd_skills = extract_skills_jd(jd)
         st.success('Extracting skills from Job Description successful!')
         # Display extracted skills
-        if resume_skills:
-            st.write("**Resume Skills:**")
-            st.write(", ".join(resume_skills))
-        if jd_skills:
-            st.write("**Job Description Skills:**")
-            st.write(", ".join(jd_skills))
+        # if resume_skills:
+        #     st.write("**Resume Skills:**")
+        #     st.write(", ".join(resume_skills))
+        # if jd_skills:
+        #     st.write("**Job Description Skills:**")
+        #     st.write(", ".join(jd_skills))
         
         # Check match using BERT
         if resume_skills and jd_skills:
