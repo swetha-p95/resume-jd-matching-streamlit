@@ -62,7 +62,7 @@ job_description = st.text_area("Job Description", height=200)
 
 
 
-if st.button("Check Matchm Score"):
+if st.button("Check Match Score"):
     
     if uploaded_file is not None:
      try:
@@ -111,10 +111,10 @@ if st.button("Check Matchm Score"):
         if resume_skills and jd_skills:
             score, sim_count, match_count = sw_semantic_similarity_from_bert(jd_skills, resume_skills)
             st.write(f"Matching Score: {score:.2f}")
-            st.write(f"Number of Exact Matches: {match_count}")
-            st.write(f"Number of Similar Matches: {sim_count}")
+            st.write(f"Number of Exact Matches between Resume and JD: {match_count}")
+            st.write(f"Number of Similarity Matches between Resume and JD: {sim_count}")
             # Plot the pie chart based on matching score
-            labels = 'Matching Skills', 'Non-Matching Skills'
+            labels = 'Match Percentage', 'Non-Match Percentage'
             sizes = [score, 1 - score]  # Sizes based on matching score
             colors = ['#2ca02c', '#d62728']  # Green and red colors
             explode = (0.1, 0)  # Explode the first slice
