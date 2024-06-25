@@ -96,9 +96,9 @@ if st.button("Check Match Score"):
     if resume and jd:
         # Extract skills
         resume_skills = extract_skills_resume(resume)
-        st.success('Extracting skills from Resume successful!')
+        st.success('Extracting skills from resume successful!')
         jd_skills = extract_skills_jd(jd)
-        st.success('Extracting skills from Job Description successful!')
+        st.success('Extracting skills from job description successful!')
         # Display extracted skills
         # if resume_skills:
         #     st.write("**Resume Skills:**")
