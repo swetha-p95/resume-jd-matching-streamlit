@@ -66,16 +66,16 @@ if st.button("Check Match Score"):
     
     if uploaded_file is not None:
      try:
-        with st.spinner('Extracting text from PDF...'):
+        with st.spinner('Extracting resume text from PDF...'):
             text = pdf_to_text(uploaded_file)
-            st.success('Text extraction successful!')
+            #st.success('Text extraction successful!')
 
             
 
             with st.spinner('Cleaning text...'):
                 cleaned_text = clean(text)
                 resume = cleaned_text
-                st.success('Text cleaning successful!')
+                st.success('Resume text cleaning successful!')
 
             
      except Exception as e:
@@ -110,7 +110,11 @@ if st.button("Check Match Score"):
         # Check match using BERT
         if resume_skills and jd_skills:
             score, sim_count, match_count = sw_semantic_similarity_from_bert(jd_skills, resume_skills)
-            st.write(f"Matching Score: {score:.2f}")
+            if score >=0.5:
+                st.success('More than 50% Match')
+            else:
+                st.error('Less than 50% Match')
+            st.write(f"Matching Score: {score:.3f}")
             st.write(f"Number of Exact Matches between Resume and JD: {match_count}")
             st.write(f"Number of Similarity Matches between Resume and JD: {sim_count}")
             # Plot the pie chart based on matching score
